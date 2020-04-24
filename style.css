@@ -1,0 +1,14 @@
+    body {
+        text-align: center;
+        background: url(img/Website-Design-Background.jpg) center no-repeat;
+    }
+
+    .texter {
+        width: 70%;
+    }
+
+    /* table */
+    .tableu {
+        width: 80%;
+        margin: 0 auto;
+    }

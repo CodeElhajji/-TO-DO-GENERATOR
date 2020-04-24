@@ -1,0 +1,52 @@
+<!CTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <h1 class="text-danger m-5">TO <strong class="text-info">DO</strong> LISTE</h1>
+        <div id="app">
+            <button v-show='!affichageBotton' class="  m-2 btn btn-success" v-on:click="affichageBotton = true">Add
+                Tache</button>
+            <div class="container">
+                <div class="row">
+                    <textarea v-show='affichageBotton' v-model='inputvalue'
+                        class="p-3 texter col-sm texter mx-auto form-control is-invalid" id="validationTextarea"
+                        placeholder="write something " required></textarea>
+                    <input v-model="datime" class="p-3 texter mx-auto form-control col-sm " v-show='affichageBotton'
+                        type="date">
+                </div>
+            </div>
+            <button v-on:click='affichageBotton = false' class="  m-2 btn btn-danger"
+                v-show='affichageBotton'>Cancel</button>
+            <button v-show='affichageBotton' :disabled="!inputvalue" v-on:click="inputvalue = '' "
+                class="  m-2 btn btn-info">Clear</button>
+            <button v-show='affichageBotton' :disabled="!inputvalue" class=" m-2 btn btn-success"
+                v-on:click="addTache()">Add</button>
+            <table class="tableu table table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">DATE</th>
+                        <th scope="col">TACHE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in text">
+                        <td>{{item.dattach}}</td>
+                        <td>{{item.tache}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <script src="vue.js"></script>
+        <script src="vuecode.js"></script>
+    </body>
+
+    </html>
